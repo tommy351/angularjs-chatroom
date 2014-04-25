@@ -9,6 +9,9 @@ app.controller('ChatCtrl', ['$scope', '$firebase', function($scope, $firebase){
   // 初始化留言清單
   $scope.messages = $firebase(fb);
 
+  // 取得留言列表的 DOM 物件
+  var $list = document.getElementById('message-list');
+
   // 設定留言送出後的動作
   $scope.submit = function(){
     // 驗證姓名與留言是否填寫
@@ -24,4 +27,9 @@ app.controller('ChatCtrl', ['$scope', '$firebase', function($scope, $firebase){
     // 清空留言內容
     $scope.content = '';
   };
+
+  // 留言更新時捲動至最底部
+  $scope.messages.$on('change', function(){
+    window.scrollTo(0, $list.scrollHeight);
+  });
 }]);

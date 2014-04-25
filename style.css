@@ -1,33 +1,24 @@
-#chat-room {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+body {
   background: #eee;
 }
 
+#message-list {
+  padding: 20px 25px 50px;
+}
+
 #chat-form {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
-}
-
-#message-list {
-  position: absolute;
-  top: 0;
-  bottom: 65px;
-  left: 0;
-  right: 0;
-  padding: 0 25px;
-  overflow: auto;
+  padding-top: 20px;
+  background: #eee;
 }
 
 .message {
   background: #fff;
   padding: 10px 15px;
   border-radius: 4px;
-  margin: 20px 0;
+  margin-bottom: 20px;
   border: 1px solid #ddd;
 }
