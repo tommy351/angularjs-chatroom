@@ -2,9 +2,12 @@
 var app = angular.module('app', ['firebase']);
 
 // Chat Controller
-app.controller('ChatCtrl', ['$scope', function($scope){
+app.controller('ChatCtrl', ['$scope', '$firebase', function($scope, $firebase){
+  // 初始化 Firebase
+  var fb = new Firebase('https://boiling-fire-6161.firebaseio.com/');
+
   // 初始化留言清單
-  $scope.messages = [];
+  $scope.messages = $firebase(fb);
 
   // 設定留言送出後的動作
   $scope.submit = function(){
@@ -12,7 +15,7 @@ app.controller('ChatCtrl', ['$scope', function($scope){
     if (!$scope.name || !$scope.content) return;
 
     // 將留言新增到清單中
-    $scope.messages.push({
+    $scope.messages.$add({
       name: $scope.name,
       content: $scope.content
     });
