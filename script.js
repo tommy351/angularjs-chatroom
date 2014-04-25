@@ -17,7 +17,8 @@ app.controller('ChatCtrl', ['$scope', '$firebase', function($scope, $firebase){
     // 將留言新增到清單中
     $scope.messages.$add({
       name: $scope.name,
-      content: $scope.content
+      content: $scope.content,
+      created: Date.now()
     });
 
     // 清空留言內容
